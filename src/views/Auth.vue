@@ -44,6 +44,9 @@ export default {
         signInConfig: {
           username: 'user@yourcompany.com'
         },
+        signOutConfig: {
+          isSignOutDisplayed: false
+        },
         confirmSignUpConfig: {
           header: 'Please enter the code sent to your email'
         }
