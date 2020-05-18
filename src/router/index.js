@@ -33,6 +33,12 @@ const routes = [
     name: 'Playlist',
     component: () => import('../views/Playlist.vue'),
     meta: { requiresAuth: true }
+  },
+  {
+    path: '*',
+    name: '404',
+    component: () => import('../views/Home.vue'),
+    meta: { requiresAuth: true }
   }
 ]
 
