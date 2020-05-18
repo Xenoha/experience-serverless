@@ -12,5 +12,29 @@
 			"service": "Pinpoint",
 			"providerPlugin": "awscloudformation"
 		}
+	},
+	"function": {
+		"S3Trigger7ee16cef": {
+			"service": "Lambda",
+			"providerPlugin": "awscloudformation",
+			"build": true
+		}
+	},
+	"storage": {
+		"s3ServerlessExperience": {
+			"service": "S3",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": [
+				{
+					"category": "function",
+					"resourceName": "S3Trigger7ee16cef",
+					"attributes": [
+						"Name",
+						"Arn",
+						"LambdaExecutionRole"
+					]
+				}
+			]
+		}
 	}
 }

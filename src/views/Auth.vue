@@ -23,7 +23,7 @@ export default {
       authConfig: {
         signUpConfig: {
           header: 'Sign up for an account',
-          hiddenDefaults: ['phone_number', 'username'],
+          hiddenDefaults: ['phone_number', 'Username'],
           signUpFields: [
             {
               label: 'Email',
