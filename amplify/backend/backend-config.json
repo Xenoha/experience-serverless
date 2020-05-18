@@ -1,0 +1,10 @@
+{
+	"auth": {
+		"experienceserverless06ff240f": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": [],
+			"customAuth": false
+		}
+	}
+}
