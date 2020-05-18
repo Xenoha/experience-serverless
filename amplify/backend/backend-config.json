@@ -6,5 +6,11 @@
 			"dependsOn": [],
 			"customAuth": false
 		}
+	},
+	"analytics": {
+		"experienceServerless": {
+			"service": "Pinpoint",
+			"providerPlugin": "awscloudformation"
+		}
 	}
 }

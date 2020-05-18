@@ -1,6 +1,6 @@
 {
     "identityPoolName": "experienceserverless06ff240f_identitypool_06ff240f",
-    "allowUnauthenticatedIdentities": false,
+    "allowUnauthenticatedIdentities": true,
     "resourceNameTruncated": "experi06ff240f",
     "userPoolName": "experienceserverless06ff240f_userpool_06ff240f",
     "autoVerifiedAttributes": [
