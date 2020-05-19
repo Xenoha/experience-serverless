@@ -4,7 +4,11 @@
 
     <v-content>
       <v-toolbar height="80vh" color="accent" flat>
-        <v-icon x-large color="secondary" class="pl-2 pb-4 align-self-end">mdi-animation-outline</v-icon>
+        <v-icon
+          x-large
+          color="secondary"
+          class="pl-2 pb-2 align-self-end display-3"
+        >mdi-animation-outline</v-icon>
         <v-toolbar-title class="align-self-end">
           <div class="px-5 primary--text display-2 text-uppercase font-weight-bold">my experiences</div>
         </v-toolbar-title>

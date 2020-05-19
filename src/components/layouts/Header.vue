@@ -23,7 +23,7 @@
       </div>
     </v-app-bar>
 
-    <v-navigation-drawer app floating clipped width="7vw" expand-on-hover color="secondary">
+    <v-navigation-drawer app floating clipped width="7vw" expand-on-hover color="grey darken-2">
       <v-list nav flat class="navigation-drawer__list">
         <v-list-item-group color="white">
           <v-list-item v-for="drawer in navigationIcons" :key="drawer.type" :to="drawer.to">
@@ -31,7 +31,7 @@
               <v-icon v-text="drawer.type"></v-icon>
             </v-list-item-icon>
             <v-list-item-content class="mx-n6">
-              <v-list-item-title class="caption" v-text="drawer.name"></v-list-item-title>
+              <v-list-item-title class="caption font-weight-bold" v-text="drawer.name"></v-list-item-title>
             </v-list-item-content>
           </v-list-item>
         </v-list-item-group>

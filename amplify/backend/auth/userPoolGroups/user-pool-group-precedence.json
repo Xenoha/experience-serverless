@@ -1,0 +1,14 @@
+[
+    {
+        "groupName": "SuperUsers",
+        "precedence": 1
+    },
+    {
+        "groupName": "Admins",
+        "precedence": 2
+    },
+    {
+        "groupName": "Editors",
+        "precedence": 3
+    }
+]
