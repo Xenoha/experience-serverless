@@ -1,9 +1,0 @@
-{
-    "groupPermissionMap": {
-        "SuperUsers": [
-            "create/update",
-            "read",
-            "delete"
-        ]
-    }
-}

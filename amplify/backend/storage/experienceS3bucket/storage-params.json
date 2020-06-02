@@ -1,0 +1,19 @@
+{
+    "groupPermissionMap": {
+        "superUser": [
+            "create/update",
+            "read",
+            "delete"
+        ],
+        "admin": [
+            "create/update",
+            "read",
+            "delete"
+        ],
+        "editor": [
+            "create/update",
+            "read",
+            "delete"
+        ]
+    }
+}

@@ -1,14 +1,14 @@
 [
     {
-        "groupName": "SuperUsers",
+        "groupName": "superUser",
         "precedence": 1
     },
     {
-        "groupName": "Admins",
+        "groupName": "admin",
         "precedence": 2
     },
     {
-        "groupName": "Editors",
+        "groupName": "editor",
         "precedence": 3
     }
 ]

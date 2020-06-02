@@ -4,6 +4,10 @@
 	"Parameters": {
 		"env": {
 			"Type": "String"
+		},
+		"authexperienceserverless4742cfb6UserPoolId": {
+			"Type": "String",
+			"Default": "authexperienceserverless4742cfb6UserPoolId"
 		}
 	},
 	"Conditions": {
@@ -28,12 +32,12 @@
 				"FunctionName": {
 					"Fn::If": [
 						"ShouldNotCreateEnvResources",
-						"S3Trigger7ee16cef",
+						"AdminQueries91fa08c1",
 						{
 							"Fn::Join": [
 								"",
 								[
-									"S3Trigger7ee16cef",
+									"AdminQueries91fa08c1",
 									"-",
 									{
 										"Ref": "env"
@@ -47,6 +51,10 @@
 					"Variables": {
 						"ENV": {
 							"Ref": "env"
+						},
+						"GROUP": "superUser",
+						"USERPOOL": {
+							"Ref": "authexperienceserverless4742cfb6UserPoolId"
 						}
 					}
 				},
@@ -59,8 +67,8 @@
 				"Runtime": "nodejs10.x",
 				"Timeout": "25",
 				"Code": {
-					"S3Bucket": "amplify-experienceserverless-dev-93551-deployment",
-					"S3Key": "amplify-builds/S3Trigger7ee16cef-57496135426c74366179-build.zip"
+					"S3Bucket": "amplify-experienceserverless-dev-185903-deployment",
+					"S3Key": "amplify-builds/AdminQueries91fa08c1-556741596976366c6869-build.zip"
 				}
 			}
 		},
@@ -70,12 +78,12 @@
 				"RoleName": {
 					"Fn::If": [
 						"ShouldNotCreateEnvResources",
-						"S3Trigger7ee16cefLambdaRole7ee16cef",
+						"AdminQueries91fa08c1LambdaRole",
 						{
 							"Fn::Join": [
 								"",
 								[
-									"S3Trigger7ee16cefLambdaRole7ee16cef",
+									"AdminQueries91fa08c1LambdaRole",
 									"-",
 									{
 										"Ref": "env"
@@ -139,6 +147,40 @@
 											"Ref": "LambdaFunction"
 										}
 									}
+								]
+							}
+						},
+						{
+							"Effect": "Allow",
+							"Action": [
+								"cognito-idp:ListUsersInGroup",
+								"cognito-idp:AdminUserGlobalSignOut",
+								"cognito-idp:AdminEnableUser",
+								"cognito-idp:AdminDisableUser",
+								"cognito-idp:AdminRemoveUserFromGroup",
+								"cognito-idp:AdminAddUserToGroup",
+								"cognito-idp:AdminListGroupsForUser",
+								"cognito-idp:AdminGetUser",
+								"cognito-idp:AdminConfirmSignUp",
+								"cognito-idp:ListUsers"
+							],
+							"Resource": {
+								"Fn::Join": [
+									"",
+									[
+										"arn:aws:cognito-idp:",
+										{
+											"Ref": "AWS::Region"
+										},
+										":",
+										{
+											"Ref": "AWS::AccountId"
+										},
+										":userpool/",
+										{
+											"Ref": "authexperienceserverless4742cfb6UserPoolId"
+										}
+									]
 								]
 							}
 						}

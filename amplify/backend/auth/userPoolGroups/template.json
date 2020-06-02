@@ -1,23 +1,23 @@
 {
     "AWSTemplateFormatVersion": "2010-09-09",
     "Parameters": {
-        "authexperienceserverless06ff240fUserPoolId": {
+        "authexperienceserverless4742cfb6UserPoolId": {
             "Type": "String",
-            "Default": "authexperienceserverless06ff240fUserPoolId"
+            "Default": "authexperienceserverless4742cfb6UserPoolId"
         },
         
-        "authexperienceserverless06ff240fIdentityPoolId": {
+        "authexperienceserverless4742cfb6IdentityPoolId": {
             "Type": "String",
-            "Default": "authexperienceserverless06ff240fIdentityPoolId"
+            "Default": "authexperienceserverless4742cfb6IdentityPoolId"
         },
         
-        "authexperienceserverless06ff240fAppClientID": {
+        "authexperienceserverless4742cfb6AppClientID": {
             "Type": "String",
-            "Default": "authexperienceserverless06ff240fAppClientID"
+            "Default": "authexperienceserverless4742cfb6AppClientID"
         },
-        "authexperienceserverless06ff240fAppClientIDWeb": {
+        "authexperienceserverless4742cfb6AppClientIDWeb": {
             "Type": "String",
-            "Default": "authexperienceserverless06ff240fAppClientIDWeb"
+            "Default": "authexperienceserverless4742cfb6AppClientIDWeb"
         },
         "AuthRoleArn": {
             "Type": "String"
@@ -41,26 +41,26 @@
     },
     "Resources": {
     
-        "SuperUsersGroup": {
+        "superUserGroup": {
           "Type" : "AWS::Cognito::UserPoolGroup",
           "Properties" : {
-              "GroupName" : "SuperUsers",
+              "GroupName" : "superUser",
               "Precedence" : 1,
               
               "RoleArn" : {
                 "Fn::GetAtt": [
-                    "SuperUsersGroupRole",
+                    "superUserGroupRole",
                     "Arn"
                 ]
               },
               
               "UserPoolId" : {
-                "Ref": "authexperienceserverless06ff240fUserPoolId"
+                "Ref": "authexperienceserverless4742cfb6UserPoolId"
               } 
             }
         },
         
-        "SuperUsersGroupRole": {
+        "superUserGroupRole": {
             "Type": "AWS::IAM::Role",
             "Properties": {
                 "RoleName":{
@@ -68,9 +68,9 @@
                         "",
                         [
                           {
-                            "Ref": "authexperienceserverless06ff240fUserPoolId"
+                            "Ref": "authexperienceserverless4742cfb6UserPoolId"
                           },
-                          "-SuperUsersGroupRole"
+                          "-superUserGroupRole"
                         ]
                     ]
                 },
@@ -85,7 +85,7 @@
                             },
                             "Action": "sts:AssumeRoleWithWebIdentity",
                             "Condition": {
-                              "StringEquals": {"cognito-identity.amazonaws.com:aud": {"Ref":"authexperienceserverless06ff240fIdentityPoolId"}},
+                              "StringEquals": {"cognito-identity.amazonaws.com:aud": {"Ref":"authexperienceserverless4742cfb6IdentityPoolId"}},
                               "ForAnyValue:StringLike": {"cognito-identity.amazonaws.com:amr": "authenticated"}
                             }
                         }
@@ -95,26 +95,26 @@
         },
      
     
-        "AdminsGroup": {
+        "adminGroup": {
           "Type" : "AWS::Cognito::UserPoolGroup",
           "Properties" : {
-              "GroupName" : "Admins",
+              "GroupName" : "admin",
               "Precedence" : 2,
               
               "RoleArn" : {
                 "Fn::GetAtt": [
-                    "AdminsGroupRole",
+                    "adminGroupRole",
                     "Arn"
                 ]
               },
               
               "UserPoolId" : {
-                "Ref": "authexperienceserverless06ff240fUserPoolId"
+                "Ref": "authexperienceserverless4742cfb6UserPoolId"
               } 
             }
         },
         
-        "AdminsGroupRole": {
+        "adminGroupRole": {
             "Type": "AWS::IAM::Role",
             "Properties": {
                 "RoleName":{
@@ -122,9 +122,9 @@
                         "",
                         [
                           {
-                            "Ref": "authexperienceserverless06ff240fUserPoolId"
+                            "Ref": "authexperienceserverless4742cfb6UserPoolId"
                           },
-                          "-AdminsGroupRole"
+                          "-adminGroupRole"
                         ]
                     ]
                 },
@@ -139,7 +139,7 @@
                             },
                             "Action": "sts:AssumeRoleWithWebIdentity",
                             "Condition": {
-                              "StringEquals": {"cognito-identity.amazonaws.com:aud": {"Ref":"authexperienceserverless06ff240fIdentityPoolId"}},
+                              "StringEquals": {"cognito-identity.amazonaws.com:aud": {"Ref":"authexperienceserverless4742cfb6IdentityPoolId"}},
                               "ForAnyValue:StringLike": {"cognito-identity.amazonaws.com:amr": "authenticated"}
                             }
                         }
@@ -149,26 +149,26 @@
         },
      
     
-        "EditorsGroup": {
+        "editorGroup": {
           "Type" : "AWS::Cognito::UserPoolGroup",
           "Properties" : {
-              "GroupName" : "Editors",
+              "GroupName" : "editor",
               "Precedence" : 3,
               
               "RoleArn" : {
                 "Fn::GetAtt": [
-                    "EditorsGroupRole",
+                    "editorGroupRole",
                     "Arn"
                 ]
               },
               
               "UserPoolId" : {
-                "Ref": "authexperienceserverless06ff240fUserPoolId"
+                "Ref": "authexperienceserverless4742cfb6UserPoolId"
               } 
             }
         },
         
-        "EditorsGroupRole": {
+        "editorGroupRole": {
             "Type": "AWS::IAM::Role",
             "Properties": {
                 "RoleName":{
@@ -176,9 +176,9 @@
                         "",
                         [
                           {
-                            "Ref": "authexperienceserverless06ff240fUserPoolId"
+                            "Ref": "authexperienceserverless4742cfb6UserPoolId"
                           },
-                          "-EditorsGroupRole"
+                          "-editorGroupRole"
                         ]
                     ]
                 },
@@ -193,7 +193,7 @@
                             },
                             "Action": "sts:AssumeRoleWithWebIdentity",
                             "Condition": {
-                              "StringEquals": {"cognito-identity.amazonaws.com:aud": {"Ref":"authexperienceserverless06ff240fIdentityPoolId"}},
+                              "StringEquals": {"cognito-identity.amazonaws.com:aud": {"Ref":"authexperienceserverless4742cfb6IdentityPoolId"}},
                               "ForAnyValue:StringLike": {"cognito-identity.amazonaws.com:amr": "authenticated"}
                             }
                         }
@@ -219,7 +219,7 @@
                                 "",
                                 [
                                   
-                                  "experienceserverless06ff240f",
+                                  "experienceserverless4742cfb6",
                                   "-ExecutionRole-",
                                   {
                                     "Ref": "env"
@@ -378,16 +378,16 @@
                     "Ref": "UnauthRoleArn"
                 },
                 "identityPoolId": {
-                    "Ref": "authexperienceserverless06ff240fIdentityPoolId"
+                    "Ref": "authexperienceserverless4742cfb6IdentityPoolId"
                 },
                 "userPoolId": {
-                    "Ref": "authexperienceserverless06ff240fUserPoolId"
+                    "Ref": "authexperienceserverless4742cfb6UserPoolId"
                 },
                 "appClientIDWeb": {
-                    "Ref": "authexperienceserverless06ff240fAppClientIDWeb"
+                    "Ref": "authexperienceserverless4742cfb6AppClientIDWeb"
                 },
                 "appClientID": {
-                    "Ref": "authexperienceserverless06ff240fAppClientID"
+                    "Ref": "authexperienceserverless4742cfb6AppClientID"
                 },
                 "region": {
                     "Ref": "AWS::Region"
@@ -403,10 +403,10 @@
     
     "Outputs": {
       
-        "SuperUsersGroupRole": {
+        "superUserGroupRole": {
             "Value": {
                 "Fn::GetAtt": [
-                    "SuperUsersGroupRole",
+                    "superUserGroupRole",
                     "Arn"
                 ]
             }
@@ -414,10 +414,10 @@
         },
         
       
-        "AdminsGroupRole": {
+        "adminGroupRole": {
             "Value": {
                 "Fn::GetAtt": [
-                    "AdminsGroupRole",
+                    "adminGroupRole",
                     "Arn"
                 ]
             }
@@ -425,10 +425,10 @@
         },
         
       
-        "EditorsGroupRole": {
+        "editorGroupRole": {
             "Value": {
                 "Fn::GetAtt": [
-                    "EditorsGroupRole",
+                    "editorGroupRole",
                     "Arn"
                 ]
             }

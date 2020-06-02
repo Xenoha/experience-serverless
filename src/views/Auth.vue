@@ -1,7 +1,10 @@
 <template>
   <section class="auth__container">
     <div class="left__section">
-      <amplify-authenticator :authConfig="authConfig" class="align-self-center" />
+      <amplify-authenticator class="align-self-center" username-alias="email">
+        <amplify-sign-up slot="sign-up" username-alias="email" :form-fields.prop="formFields" />
+        <amplify-sign-in slot="sign-in" username-alias="email" :form-fields.prop="formFields" />
+      </amplify-authenticator>
     </div>
     <div class="right__section" :style="image">
       <img class="image" :src="reflectLogo" />
@@ -20,37 +23,19 @@ export default {
         backgroundImage: 'url(' + require('@/assets/reflect/cloud_BG.jpg') + ')'
       },
       reflectLogo: require('@/assets/reflect/reflect_url_logo.png'),
-      authConfig: {
-        signUpConfig: {
-          header: 'Sign up for an account',
-          hiddenDefaults: ['phone_number', 'Username'],
-          signUpFields: [
-            {
-              label: 'Email',
-              key: 'email',
-              type: 'string',
-              required: true,
-              displayOrder: 0
-            },
-            {
-              label: 'Password',
-              key: 'password',
-              type: 'password',
-              required: true,
-              displayOrder: 1
-            }
-          ]
+      formFields: [
+        {
+          label: 'Email',
+          type: 'email',
+          placeholder: 'name@yourCompany.com',
+          required: true
         },
-        signInConfig: {
-          username: 'user@yourcompany.com'
-        },
-        signOutConfig: {
-          isSignOutDisplayed: false
-        },
-        confirmSignUpConfig: {
-          header: 'Please enter the code sent to your email'
+        {
+          label: 'Password',
+          type: 'password',
+          required: true
         }
-      }
+      ]
     }
   },
   created () {
